@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import { useEffect, useState } from "react";
+import Product from './product';
 export default function Products() {
     const [products, setProducts] = useState([]);
 
@@ -12,16 +13,15 @@ export default function Products() {
   },[]);
   
   const title = products.map ((product) => 
-      <div style={{display: 'flex'}}>
-        <li>{product.title}</li>
+      <div style={{display: 'flex'}}> 
+        <li>{product.title}</li> &emsp;
       <Link to = {`/product/${product.id}`}> Show details</Link>
-
        </div>
       );
 
   return(
     <>
-    <h1>Products</h1>
+    <h2>Products</h2>
     <p> {title}</p>
     {/* <p>ID: {product.id}</p>
       <h2> Title: {product.title} </h2>

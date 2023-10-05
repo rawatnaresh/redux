@@ -11,10 +11,10 @@ export default function Root() {
           <nav>
             <ul>
               <li>
-                <Link to={`/Products`}>Products</Link>
+                <Link to={`/products`}>Products</Link>
               </li>
               <li>
-                <Link to={`/Carts`}>Carts</Link>
+                <Link to={`/carts`}>Carts</Link>
               </li>
             </ul>
           </nav>

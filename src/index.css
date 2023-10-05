@@ -217,6 +217,7 @@ i {
   margin: 0.25rem 0;
 }
 
+#nav
 #sidebar nav a {
   display: flex;
   align-items: center;
@@ -390,4 +391,9 @@ i {
 
 .header{
   text-align: center;
+}
+
+.productDetails{
+  margin-left: 100px;
+  margin-top: 70px;
 }

@@ -9,6 +9,7 @@ import {
 import './index.css'
 import Products from './routes/products';
 import Carts from './routes/carts';
+import Product from './routes/product';
 
 const router = createBrowserRouter([
   {
@@ -16,18 +17,18 @@ const router = createBrowserRouter([
     element: <Root />,
     children:[
       {
-        path:"Products/",
+        path:"products/",
         element: <Products />,
       },
       {
-        path:"Carts/",
+        path:"carts/",
         element: <Carts />,
       }
     ]
   },
   {
     path: "product/:productId",
-    element: <p>bbb </p>
+    element: <Product />
   }
 ]);
 
