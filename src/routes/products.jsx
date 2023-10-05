@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
 export default function Products() {
-    const [product, setProduct] = useState([]);
+    const [products, setProducts] = useState([]);
 
-    const [productId, setProductId] = useState(1);
+    // const [productId, setProductId] = useState(1);
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${productId}`)
+    fetch(`https://dummyjson.com/products/`)
       .then((res) => res.json())
       .then((data) => {
-        setProduct(data);
-        console.log(data);
+        setProducts(data.products);
       });
-  }, [productId]);
+  },[]);
   
+  const title = products.map ((products) => 
+      <li>{products.title}</li>
+      );
+  const handleClick = (id) =>{
+    setProducts(id);
+  }
   return(
     <>
     <h1>Products</h1>
-    <p>ID: {product.id}</p>
+    <p> {title}</p>
+    {/* <p>ID: {product.id}</p>
       <h2> Title: {product.title} </h2>
       <p> Description: {product.description} </p>
       <p>
@@ -24,8 +30,8 @@ export default function Products() {
       </p>
       <p>
         <img src={product.thumbnail} alt="" />
-      </p>
-      
+      </p> */}
+      <button onClick={() => handleClick(1)}> Show details</button>
     </>
   )
 }
