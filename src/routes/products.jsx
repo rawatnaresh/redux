@@ -1,8 +1,7 @@
+import {Link} from 'react-router-dom';
 import { useEffect, useState } from "react";
 export default function Products() {
     const [products, setProducts] = useState([]);
-
-    // const [productId, setProductId] = useState(1);
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/`)
@@ -12,12 +11,14 @@ export default function Products() {
       });
   },[]);
   
-  const title = products.map ((products) => 
-      <li>{products.title}</li>
+  const title = products.map ((product) => 
+      <div style={{display: 'flex'}}>
+        <li>{product.title}</li>
+      <Link to = {`/product/${product.id}`}> Show details</Link>
+
+       </div>
       );
-  const handleClick = (id) =>{
-    setProducts(id);
-  }
+
   return(
     <>
     <h1>Products</h1>
@@ -31,7 +32,6 @@ export default function Products() {
       <p>
         <img src={product.thumbnail} alt="" />
       </p> */}
-      <button onClick={() => handleClick(1)}> Show details</button>
     </>
   )
 }

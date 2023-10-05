@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Root from "./routes/root";
+import Header from "./header.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,10 +25,15 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "product/:productId",
+    element: <p>bbb </p>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={router} />
   </React.StrictMode>,
 )

@@ -5,9 +5,7 @@ export default function Root() {
 
     return (
       <>
-      <div className='header'>
-        <h1> My Project </h1>
-        </div>
+      
         <div className="contents">
         <div id="sidebar">
           <nav>
