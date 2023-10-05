@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom';
 import { useEffect, useState } from "react";
-import Product from './product';
 export default function Products() {
     const [products, setProducts] = useState([]);
 
@@ -23,15 +22,6 @@ export default function Products() {
     <>
     <h2>Products</h2>
     <p> {title}</p>
-    {/* <p>ID: {product.id}</p>
-      <h2> Title: {product.title} </h2>
-      <p> Description: {product.description} </p>
-      <p>
-        <b>Price: </b> {product.price}
-      </p>
-      <p>
-        <img src={product.thumbnail} alt="" />
-      </p> */}
     </>
   )
 }

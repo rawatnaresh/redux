@@ -10,6 +10,7 @@ import './index.css'
 import Products from './routes/products';
 import Carts from './routes/carts';
 import Product from './routes/product';
+import Cart from './routes/cart'
 
 const router = createBrowserRouter([
   {
@@ -22,13 +23,18 @@ const router = createBrowserRouter([
       },
       {
         path:"carts/",
-        element: <Carts />,
+        element: <p>Cart</p>
+        // element: <Carts />,
       }
     ]
   },
   {
     path: "product/:productId",
     element: <Product />
+  },
+  {
+    path: "carts/:cartId",
+    element: <Cart />
   }
 ]);
 

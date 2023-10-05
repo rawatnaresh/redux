@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+
+
 export default function Carts() {
     const [cart, setCart] = useState([]);
 
@@ -15,19 +19,14 @@ export default function Carts() {
   
   return(
     <>
-    <h1>Carts</h1>
-    <p> ID: {cart.id}</p>
+    <h2>Carts</h2>
+    <p> <b>ID:</b> {cart.id}</p>
       <h2> Total: {cart.total} </h2>
-      <p> TotalProducts: {cart.totalProducts} </p>
+      <p> <b>TotalProducts:</b> {cart.totalProducts} </p>
       <p>
         <b>TotalQuantity: </b> {cart.totalQuantity}
       </p>
-      {/* <p>
-        <b>TotalQuantity: </b> {products.title}
-      </p> */}
-      <p>
-        <img src={cart.thumbnail} alt="" />
-      </p>
+      <Link to = {`/carts/${cart.id}`}> Show products</Link>
     </>
   )
 }
