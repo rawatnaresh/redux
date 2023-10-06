@@ -9,8 +9,8 @@ import {
 import './index.css'
 import Products from './routes/products';
 import Carts from './routes/carts';
-import Product from './routes/product';
-import Cart from './routes/cart'
+import ProductDetails from './routes/productDetails';
+import Cart from './routes/cartDetails'
 
 const router = createBrowserRouter([
   {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "product/:productId",
-    element: <Product />
+    element: <ProductDetails />
   },
   {
     path: "carts/:cartId",
