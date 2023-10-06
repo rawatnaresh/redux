@@ -3,40 +3,35 @@ import { useState, useEffect } from "react";
 
 const Cart = () => {
      const {cartId} = useParams();
-     const [carts, setCarts] = useState([]);
+     const [cart, setCart] = useState({});
      useEffect(() => {
-        fetch(`https://dummyjson.com/carts/`)
+        fetch(`https://dummyjson.com/carts/${cartId}`)
           .then((res) => res.json())
           .then((data) => {
-            setCarts(data.carts);
-            console.log(data);
+            setCart(data);
+            console.log(data, "carts");
           });
-      }, []);
-      
-      const Product = ({title, price}) => {
-        return (
-          <div>
-          <li>{title}</li>
-          <li>{price}</li>
-          </div>
-        )
-      }
+      }, [cartId]);
 
-      const DataComponent = ({ carts }) => {
-        return (
-          <div>
-            {carts.map(product => (
-              <Product title={product.title} />
-            ))}
-          </div>
-        );
-      };
 
+
+      const carttitle = cart.products && cart.products.map ((cartt) => 
+      <div> 
+    <li><b>{cartt.title}</b></li> 
+    <li>price: {cartt.price}</li>
+    <li>quantity: {cartt.quantity}</li>&emsp;
+   </div>
+  );
+  
       return(
-        <>
-        <DataComponent data={carts} />
+        <div className="cartDetails">
         <p><b>ID:</b> {cartId}</p>
-        </>
+        <h2> Total: {cart.total} </h2>
+        <p> <b>TotalProducts:</b> {cart.totalProducts} </p>
+        <p> <b>TotalQuantity: </b> {cart.totalQuantity} </p> <br/>
+        <h3><u>Cart Details</u></h3>
+        <p>{carttitle}</p>
+        </div>
     )
  }
  export default Cart;

@@ -23,8 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path:"carts/",
-        element: <p>Cart</p>
-        // element: <Carts />,
+        element: <Carts />,
       }
     ]
   },
@@ -34,6 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: "carts/:cartId",
+    // element: <p>Cart</p>
     element: <Cart />
   }
 ]);

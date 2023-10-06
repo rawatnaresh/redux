@@ -1,32 +1,33 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
 export default function Carts() {
-    const [cart, setCart] = useState([]);
+    const [carts, setCarts] = useState([]);
 
     const [cartId, setCartId] = useState(1);
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/carts/${cartId}`)
+    fetch(`https://dummyjson.com/carts/`)
       .then((res) => res.json())
       .then((data) => {
-        setCart(data);
+        setCarts(data.carts);
         console.log(data);
       });
-  }, [cartId]);
+  }, []);
   
+  const cartid = carts.map ((cart) => 
+  <div style={{display: 'flex'}}> 
+    <li>{cart.id}</li> &emsp;
+    <Link to = {`/carts/${cart.id}`}> Show products</Link>
+   </div>
+  );
+
   return(
     <>
     <h2>Carts</h2>
-    <p> <b>ID:</b> {cart.id}</p>
-      <h2> Total: {cart.total} </h2>
-      <p> <b>TotalProducts:</b> {cart.totalProducts} </p>
-      <p>
-        <b>TotalQuantity: </b> {cart.totalQuantity}
-      </p>
-      <Link to = {`/carts/${cart.id}`}> Show products</Link>
+    <p> <b>Cart ID:</b> {cartid}</p>
+      
+      
     </>
   )
 }
