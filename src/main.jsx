@@ -11,8 +11,10 @@ import Products from './routes/products';
 import Carts from './routes/carts';
 import ProductDetails from './routes/productDetails';
 import Cart from './routes/cartDetails'
+import Signup from './routes/signup';
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <Root />,
@@ -34,7 +36,12 @@ const router = createBrowserRouter([
   {
     path: "carts/:cartId",
     element: <Cart />
+  },
+  {
+    path: "signup/",
+    element: <Signup />
   }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
