@@ -16,11 +16,9 @@ const bull = (
   >
   </Box>
 );
-
-
 export default function Products() {
     const [products, setProducts] = useState([]);
-
+    
   useEffect(() => {
     fetch(`https://dummyjson.com/products/`)
       .then((res) => res.json())
@@ -28,6 +26,11 @@ export default function Products() {
         setProducts(data.products);
       });
   },[]);
+
+const [cart, setCart] = useState([]);
+  const handleOnClick = (product) => {
+    setCart([...cart, product ])
+  }
   
   const title = products.map ((product) => 
       <div key={product.id} style = {{width:'30%', padding:'10px'}}> 
@@ -39,14 +42,17 @@ export default function Products() {
         <img src={product.thumbnail} alt=""  style={{ height: '300px', width: '300px', objectFit:'cover'}}/>
         &emsp;
         <Link to = {`/product/${product.id}`} size="small"> Show details</Link> <br/><br/>
+        <Button onClick= {() => handleOnClick(product) } size="small"> Add to cart</Button> <br/><br/>
         </CardContent>
-    </Card>
-       </div>
+        </Card>
+        </div>
       );
 
   return(<>
         <Typography variant="h5" component="div">
           Available products
+        <br />
+          Available cart: {cart.length}
         </Typography>
   <div style={{display: 'flex', flexWrap: 'wrap'}}> 
     {title}

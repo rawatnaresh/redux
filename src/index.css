@@ -103,3 +103,22 @@ i {
   text-align: center;
   
 }
+
+.color{
+  color: black;
+}
+
+.nav-links{
+  color: black;
+  text-align: center;
+
+  display: flex;
+  gap: 20px;
+  margin-left: 50px;
+}
+
+/* .nav{
+  color: white ;
+  display: flex;
+  justify-content: space-between;
+} */

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Root from "./routes/root";
-import Header from "./header.jsx";
+import Header from "./routes/header.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,41 +12,65 @@ import Carts from './routes/carts';
 import ProductDetails from './routes/productDetails';
 import Cart from './routes/cartDetails'
 import Signup from './routes/signup';
+import Login from './routes/login';
+import Sidebar from './routes/sidebar';
 
 const router = createBrowserRouter([
   
   {
     path: "/",
     element: <Root />,
-    children:[
-      {
-        path:"products/",
-        element: <Products />,
-      },
-      {
-        path:"carts/",
-        element: <Carts />,
+  
+        children: [
+          {
+            path: "/",
+            element:<Sidebar />,
+            children: [
+            {
+              path:"/",
+              element: <Products />,
+            },
+            {
+              path:"products/",
+              element: <Products />,
+            },
+            {
+              path:"carts/",
+              element: <Carts />,
+            },
+            {
+              path: "product/:productId",
+              element: <ProductDetails />
+            },
+            {
+              path: "carts/:cartId",
+              element: <Cart />
+              }
+            ]
+          },
+          {
+          path: "signup/",
+          element: <Signup />
+          },
+          {
+            path: "login/",
+            element: <Login />
+          },
+          // {
+          //   path: "product/:productId",
+          //   element: <ProductDetails />
+          // },
+          // {
+          // path: "carts/:cartId",
+          // element: <Cart />
+          // },
+          ]
       }
     ]
-  },
-  {
-    path: "product/:productId",
-    element: <ProductDetails />
-  },
-  {
-    path: "carts/:cartId",
-    element: <Cart />
-  },
-  {
-    path: "signup/",
-    element: <Signup />
-  }
-
-]);
+)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Header />
     <RouterProvider router={router} />
   </React.StrictMode>,
 )

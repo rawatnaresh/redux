@@ -12,20 +12,16 @@ export default function Header() {
       <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Namespace Cart
+          <Link to = "/" className='color'>
+          <Typography variant="h6" component="div"sx={{ flexGrow: 1 }}>
+             Namespace Cart 
           </Typography>
-          {/* <Link to = {"/"} color="inherit">Signup</Link> */}
-          <Button color="inherit">Signup</Button>
-          <Button color="inherit">Login</Button>
+          </Link>
+          
+          <div className='nav-links'>
+          <Link to = "/signup">Signup</Link>
+          <Link to = "/login">Login</Link>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>
