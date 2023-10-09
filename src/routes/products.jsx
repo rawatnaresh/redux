@@ -30,22 +30,27 @@ export default function Products() {
   },[]);
   
   const title = products.map ((product) => 
-      <div className='products'> 
-        <h3>{product.title}</h3>
-        <p>
-        <img src={product.thumbnail} alt="" />
-        </p>  &emsp;
-      <Link to = {`/product/${product.id}`} size="small"> Show details</Link> <br/><br/>
+      <div key={product.id} style = {{width:'30%', padding:'10px'}}> 
+        <Card sx={{ minWidth: 275, minHeight: 200}}>
+        <CardContent>
+        <Typography variant="h5" component="div">
+          {product.title}
+        </Typography>
+        <img src={product.thumbnail} alt=""  style={{ height: '300px', width: '300px', objectFit:'cover'}}/>
+        &emsp;
+        <Link to = {`/product/${product.id}`} size="small"> Show details</Link> <br/><br/>
+        </CardContent>
+    </Card>
        </div>
       );
 
-  return(
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
+  return(<>
         <Typography variant="h5" component="div">
-          {title}
+          Available products
         </Typography>
-      </CardContent>
-    </Card>
+  <div style={{display: 'flex', flexWrap: 'wrap'}}> 
+    {title}
+  </div>
+  </>
   );
 }
